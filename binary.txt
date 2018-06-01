@@ -1,0 +1,169 @@
+#include <stdio.h>
+int convert(int);
+int main()
+
+{
+
+    int dec, bin;
+
+ printf("Enter a decimal number: ");
+
+    scanf("%d", &dec);
+
+    bin = convert(dec);
+
+    printf("The binary equivalent of %d is %d.\n", dec, bin);
+
+ 
+
+    return 0;
+
+}
+int convert(int dec)
+
+{
+if (dec == 0)
+{
+
+return 0;
+}
+
+else
+
+{
+return (dec % 2 + 10 * convert(dec / 2));
+}
+
+}
+10 -1010
+#include <stdio.h>
+int find_anagram(char [], char []);
+int main()
+{
+char array1[100], array2[100];
+int flag;
+printf("Enter the string\n");
+gets(array1);
+printf("Enter another string\n");
+gets(array2);
+flag = find_anagram(array1, array2);
+if (flag == 1)
+printf(""%s" and "%s" are anagrams.\n", array1, array2);
+else
+printf(""%s" and "%s" are not anagrams.\n", array1, array2);
+return 0;
+}
+int find_anagram(char array1[], char array2[])
+{
+int num1[26] = {0}, num2[26] = {0}, i = 0;
+while (array1[i] != '\0')
+{
+num1[array1[i] - 'a']++;
+i++;
+}
+i = 0;
+while (array2[i] != '\0')
+{
+num2[array2[i] -'a']++;
+i++;
+}
+for (i = 0; i < 26; i++)
+{
+if (num1[i] != num2[i])
+ return 0;
+}
+return 1;
+}
+abll
+ball
+tall
+all
+#include <stdio.h>
+#include <string.h>
+
+int main (void) {
+   char s1[] = "recitals";
+   char s2[] = "articles";
+
+   char temp;
+
+   int i, j;
+   int n  = strlen(s1);
+   int n1 = strlen(s2);
+
+   // If both strings are of different length, then they are not anagrams
+
+   if( n != n1) {    
+      printf("%s and %s are not anagrams! \n", s1, s2);
+      return 0;
+   }
+   
+   // lets sort both strings first -
+
+   for (i = 0; i < n-1; i++) {
+      for (j = i+1; j < n; j++) {
+         if (s1[i] > s1[j]) {
+            temp  = s1[i];
+            s1[i] = s1[j];
+            s1[j] = temp;
+         }
+         if (s2[i] > s2[j]) {
+            temp  = s2[i];
+            s2[i] = s2[j];
+            s2[j] = temp;
+         }
+      }
+   }
+
+   // Compare both strings character by character
+
+   for(i = 0; i<n; i++) {
+      if(s1[i] != s2[i]) {    
+         printf("Strings are not anagrams! \n", s1, s2);
+         return 0;
+      }
+   }
+
+   printf("Strings are anagrams! \n");
+   return 0;
+}
+
+ */
+
+#include <stdio.h>
+int fibo(int);
+int main()
+{
+int num;
+int result;
+printf("Enter the nth number in fibonacci series: ");
+scanf("%d", &num);
+if (num < 0)
+{
+printf("Fibonacci of negative number is not possible.\n");
+}
+else
+{
+result = fibo(num);
+printf("The %d number in fibonacci series is %d\n", num, result);
+}
+return 0;
+}
+int fibo(int num)
+{
+if (num == 0)
+{
+return 0;
+}
+else if (num == 1)
+{
+return 1;
+}
+else
+{
+
+        return(fibo(num - 1) + fibo(num - 2));
+
+    }
+
+}
